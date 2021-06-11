@@ -1,0 +1,77 @@
+.sky {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.star-blink {
+	position: absolute;
+	width: 7px;
+	height: 7px;
+	background-color: #b6cbd4;
+	border-radius: 50%;
+	z-index: 0;
+	-webkit-transform: rotate(0deg) scale(0.08);
+	-webkit-backface-visibility: hidden;
+	-webkit-animation: blinkAfter 15s infinite ease-out;
+}
+.star-blink div {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	-webkit-transform: rotate(45deg) scale(0.75);
+	background-image: linear-gradient(1deg, #f35d44, #f35c44 51%, #dd0f3a);
+	box-shadow: 0 0 2px 8px rgba(221,15,58,0.4),
+				0 0 2px 9px rgba(255,255,255,0.07),
+				0 0 2px 15px rgba(243,93,68,0.4), 
+				0 0 2px 16px rgba(255,255,255,0.1);
+	-webkit-backface-visibility: hidden;
+}
+.star-blink:after, .star-blink:before, .star-blink div:after, .star-blink div:before {
+	content: '';
+	position: absolute;
+	display: block;
+	top: -350%;
+	left: 45%;
+	height: 800%;
+	width: 10%;
+	border-radius: 50%;
+	background-color: #b6cbd4;
+	background:-webkit-linear-gradient(
+		top, 
+		rgba(255,255,255,0.1) 0%, 
+		rgba(255,255,255,0.7) 50%,
+		rgba(255,255,255,0.1) 100%);
+	z-index: 1;
+
+	box-shadow: 0 0 25px white;
+	-webkit-backface-visibility: hidden;
+}
+.star-blink:before, .star-blink div:before {
+	-webkit-transform: rotate(90deg);
+}
+
+@-webkit-keyframes blinkAfter {
+	0% {
+		-webkit-transform: rotate(0deg) scale(0.08);
+	}
+	4% {
+		-webkit-transform: rotate(-20deg) scale(0.9);
+	}
+	8% {
+		-webkit-transform: rotate(-40deg) scale(0.08);	
+	}
+	50% {
+		-webkit-transform: rotate(-40deg) scale(0.08);
+	}
+	52% {
+		-webkit-transform: rotate(-50deg) scale(0.3);
+	}
+	54% {
+		-webkit-transform: rotate(-60deg) scale(0.08);
+	} 
+	100% {
+		-webkit-transform: rotate(0deg) scale(0.08);	
+	}
+}
